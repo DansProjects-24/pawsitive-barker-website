@@ -1,0 +1,295 @@
+/* ---------------------------- */
+/* Reset & Base Styling         */
+/* ---------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* ---------------------------- */
+/* Section Base Styling         */
+/* ---------------------------- */
+section {
+  padding: 60px 20px;
+  max-width: 1500px;
+  margin: auto;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+section p {
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* ---------------------------- */
+/* Header Section               */
+/* ---------------------------- */
+header {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('images/hero.jpg') top center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+header p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+/* ---------------------------- */
+/* Intro Section                */
+/* ---------------------------- */
+.intro {
+  background-color: #f8f8f8;
+  padding: 80px 20px;
+}
+
+/* Intro section spacing */
+.intro {
+  background-color: #f8f8f8;
+  padding: 50px 100px; /* more padding around section */
+}
+
+/* Intro section layout with image */
+.intro-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap; /* ensures responsiveness */
+}
+
+.intro-image img {
+  width: 200px;        /* adjust as needed */
+  height: 200px;       /* make it square for perfect circle */
+  border-radius: 50%;  /* circle shape */
+  object-fit: cover;   /* keep image proportions */
+  border: 4px solid #111; /* optional border for emphasis */
+}
+
+.intro-text {
+  max-width: 600px; /* keeps text from stretching too wide */
+  text-align: left; /* align text to left for desktop */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 800px) {
+  .intro-text {
+    text-align: center;
+  }
+  .intro-image img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Horizontal bullet points with emphasis */
+.intro-bullets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* space between bullets */
+  list-style: none; /* remove default disc */
+  padding: 0;
+  margin: 20px 0 0 0;
+  color: #111; /* make text darker for emphasis */
+  font-weight: 700; /* bold */
+  font-size: 1.05rem; /* slightly larger */
+  font-family: "Poppins", sans-serif; /* can change to a secondary font if desired */
+}
+
+.intro-bullets li {
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Optional: paw icon before each bullet */
+.intro-bullets li::before {
+  content: "\f1b0"; /* Font Awesome paw icon */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #111;
+}
+
+/* ---------------------------- */
+/* Services Section             */
+/* ---------------------------- */
+.services {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.service-item h3 {
+  color: #000;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.service-item h3 i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.service-item p {
+  color: #555;
+}
+
+/* ---------------------------- */
+/* Further Information Section  */
+/* ---------------------------- */
+.info {
+  background-color: #f8f8f8;
+}
+
+.downloads {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.downloads a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 18px;
+  color: #111;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.downloads a:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+  transform: translateY(-3px);
+}
+
+.downloads i {
+  font-size: 1.2rem;
+}
+
+/* ---------------------------- */
+/* Contact Section              */
+/* ---------------------------- */
+.contact {
+  padding: 60px 20px;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.contact-icons .icon {
+  font-size: 5rem;
+  color: #111;
+  background: #f0f0f0;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-icons .icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.icon.email:hover { background: #d93025; color: white; }
+.icon.facebook:hover { background: #1877f2; color: white; }
+.icon.whatsapp:hover { background: #25d366; color: white; }
+.icon.instagram:hover { background: #e4405f; color: white; }
+
+/* ---------------------------- */
+/* Gallery Section              */
+/* ---------------------------- */
+.gallery .image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ---------------------------- */
+/* Footer                       */
+/* ---------------------------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #eee;
+}
+
+/* ---------------------------- */
+/* Responsive Tweaks            */
+/* ---------------------------- */
+@media (max-width: 600px) {
+  header h1 { font-size: 2rem; }
+  .service-item { padding: 20px; }
+}
