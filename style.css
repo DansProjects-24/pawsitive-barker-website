@@ -43,9 +43,12 @@ section p {
 header {
   background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
               url('images/hero.jpg') top center/cover no-repeat;
-  color: white;
   text-align: center;
   padding: 150px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 header h1 {
@@ -59,66 +62,64 @@ header p {
   font-weight: 300;
 }
 
+header .hero-text {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 10px 15px;
+  border-radius: 12px;
+  display: inline-block;
+  color: #111;
+}
+
+header .hero-text h1,
+header .hero-text p {
+  color: #111;
+  margin: 0;
+}
+
 /* ---------------------------- */
 /* Intro Section                */
 /* ---------------------------- */
 .intro {
   background-color: #f8f8f8;
-  padding: 80px 20px;
+  padding: 50px 50px;
 }
 
-/* Intro section spacing */
-.intro {
-  background-color: #f8f8f8;
-  padding: 50px 100px; /* more padding around section */
-}
-
-/* Intro section layout with image */
 .intro-inner {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  flex-wrap: wrap; /* ensures responsiveness */
+  flex-wrap: nowrap;  /* prevent stacking */
+  flex-shrink: 1;     /* allow items to shrink on small screens */
 }
 
 .intro-image img {
-  width: 200px;        /* adjust as needed */
-  height: 200px;       /* make it square for perfect circle */
-  border-radius: 50%;  /* circle shape */
-  object-fit: cover;   /* keep image proportions */
-  border: 4px solid #111; /* optional border for emphasis */
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #111;
 }
 
 .intro-text {
-  max-width: 600px; /* keeps text from stretching too wide */
-  text-align: left; /* align text to left for desktop */
+  max-width: 600px;
+  text-align: left;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 800px) {
-  .intro-text {
-    text-align: center;
-  }
-  .intro-image img {
-    width: 150px;
-    height: 150px;
-  }
-}
-
-/* Horizontal bullet points with emphasis */
 .intro-bullets {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* space between bullets */
-  list-style: none; /* remove default disc */
+  gap: 20px;
+  list-style: none;
   padding: 0;
   margin: 20px 0 0 0;
-  color: #111; /* make text darker for emphasis */
-  font-weight: 700; /* bold */
-  font-size: 1.05rem; /* slightly larger */
-  font-family: "Poppins", sans-serif; /* can change to a secondary font if desired */
+  color: #111;
+  font-weight: 700;
+  font-size: 1.05rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .intro-bullets li {
@@ -126,7 +127,6 @@ header p {
   padding-left: 20px;
 }
 
-/* Optional: paw icon before each bullet */
 .intro-bullets li::before {
   content: "\f1b0"; /* Font Awesome paw icon */
   font-family: "Font Awesome 6 Free";
@@ -224,35 +224,57 @@ header p {
   padding: 60px 20px;
 }
 
+.contact h2 {
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  margin-bottom: 25px;
+  color: #555;
+}
+
 .contact-icons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 .contact-icons .icon {
-  font-size: 5rem;
-  color: #111;
-  background: #f0f0f0;
+  width: 80px;           /* smaller circle */
+  aspect-ratio: 1 / 1;   /* keep circle shape */
+  font-size: 3rem;     /* smaller icon inside */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  color: #fff;
+}
+
+.icon.email { background: #d93025; }
+.icon.facebook { background: #1877f2; }
+.icon.whatsapp { background: #25d366; }
+.icon.instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285AEB 90%
+  );
+  color: #fff;
 }
 
 .contact-icons .icon:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  filter: brightness(1.15);
 }
-
-.icon.email:hover { background: #d93025; color: white; }
-.icon.facebook:hover { background: #1877f2; color: white; }
-.icon.whatsapp:hover { background: #25d366; color: white; }
-.icon.instagram:hover { background: #e4405f; color: white; }
 
 /* ---------------------------- */
 /* Gallery Section              */
@@ -289,7 +311,27 @@ footer {
 /* ---------------------------- */
 /* Responsive Tweaks            */
 /* ---------------------------- */
+@media (max-width: 800px) {
+  .intro-text { text-align: center; }
+  .intro-image img { width: 150px; height: 150px; }
+  section { padding: 40px 20px; }
+}
+
 @media (max-width: 600px) {
-  header h1 { font-size: 2rem; }
+  header { padding: 100px 15px; }
+  header .hero-text { padding: 15px 20px; }
+  header h1 { font-size: 1.9rem; }
+  header p { font-size: 1rem; }
+
+  .service-list { grid-template-columns: 1fr; }
   .service-item { padding: 20px; }
+
+  .gallery img { height: 160px; }
+}
+
+@media (max-width: 500px) {
+  .contact-icons .icon {
+    width: 75px;
+    font-size: 3rem;
+  }
 }
